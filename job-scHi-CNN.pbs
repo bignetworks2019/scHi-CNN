@@ -1,0 +1,36 @@
+#!/bin/bash
+#PBS -q default
+#PBS -N run-sample
+#PBS -l select=5:mem=5gb:ncpus=2
+#PBS -l walltime=168:00:00
+#
+#
+cd $PBS_O_WORKDIR
+#
+##change the input filename if needed
+
+source activate conda_env
+
+in_dir="sample-cool-out"
+out_dir="scHi-CNN-out"
+type="sample"
+genome="hg19"
+impute_out="imputed"
+norm_out="norm"
+num_proc=10
+cell_file=${out_dir}/${type}-cells.txt
+resol=100000
+cutoff=1000000
+
+mkdir ${out_dir}
+
+cp -r ${in_dir} ${out_dir}/${type}
+ls -1 ${out_dir}/${type} > ${cell_file}
+
+mpirun -np ${num_proc} python knear.py --resol ${resol} --cutoff ${cutoff} --type ${type} --prefix ${out_dir} --out-suffix ${impute_out} --cell-file ${cell_file} --genome ${genome} --non-zero
+
+python normalize.py --type ${type} --res ${resol} --prefix ${out_dir} --in-suffix ${impute_out} --out-suffix ${norm_out} --cell-file ${cell_file} --genome ${genome}
+
+python significant-filter.py --type ${type} --res ${resol} --genome ${genome} --prefix ${out_dir} --in-suffix ${norm_out} --cell-file ${cell_file}
+
+exit 0
