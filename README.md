@@ -5,7 +5,7 @@ This pipeline consists of three main scripts: `knear.py`, `normalize.py`, and `s
 ## Requirements
 
 - Python 3.7+
-- Libraries: `sys`, `numpy`, `traceback`, `heapq`, `scipy.sparse.csr_matrix`, `mpi4py.MPI`, `gc`, `cooler`, `h5py`, `multiprocessing`, `statsmodels.stats.multitest.multipletests`
+- Libraries: `numpy`, `traceback`, `scipy`, `mpi4py`, `cooler`, `h5py`
 - MPI Runtime Environment for parallel computing (e.g., OpenMPI) is highly recommended for reduced running time
 - Input: A directory containing `.cool` files. A script `convert-cool.sh` is provided to convert paired end files to `.cool` files.
 - To generate `.cool` files from your Hi-C data, you may use the `cooler` library which provides CLI tools for creating, managing, and manipulating `.cool` files. For more information, please refer to the [cooler documentation](https://cooler.readthedocs.io/en/latest/).
