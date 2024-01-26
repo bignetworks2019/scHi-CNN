@@ -125,4 +125,9 @@ Please note that the coordinates are 0-based, and the end coordinate is exclusiv
 ## Contact
 For any issues or concerns, please open an issue on this GitHub repository or contact the repository owner directly.
 
-Note: This pipeline is for research purposes only. Please cite the relevant work if you use it in your published research.
+## Citation
+This pipeline is for research purposes only. Please cite our published work at IEEE if you use it in your published research. Paper URL: [https://ieeexplore.ieee.org/abstract/document/10385614](https://ieeexplore.ieee.org/abstract/document/10385614)
+
+C. Bulathsinghalage and L. Liu, "scHi-CNN: a Computational Method for Statistically Significant Single-cell Hi-C Chromatin Interactions with Nearest Neighbors," 2023 IEEE International Conference on Bioinformatics and Biomedicine (BIBM), Istanbul, Turkiye, 2023, pp. 94-99, doi: 10.1109/BIBM58861.2023.10385614.
+
+
